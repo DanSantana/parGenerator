@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bra Bilhar</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="container"onload="displayGang()">
+  <h1 class="jumbotron">Pairs Generator</h1>
+
+
+  <div>
+    <label class="label label-primary">The Entire Gang</label>
+    <textarea class="form-control" type="text" rows="3" id="myGang" placeholder="Press Generate Pairs!" readonly=true></textarea>
+    <button class="btn-primary form-control" onclick="pairGenerate()">Generate Pairs!!</button>
+    <hr>
+    <label class="label label-primary">Spider Team</label>
+    <input class="form-control" type=" text" id="game1" placeholder="Spider Team" readonly=true></input>
+    <label class="label label-primary">Horse Team</label>
+    <input class="form-control" type=" text" id="game2" placeholder="Horse Team" readonly=true></input>
+    <label class="label label-primary">Shark Team</label>
+    <input class="form-control" type=" text" id="game3" placeholder="Shark Team" readonly=true></input>
+    <label class="label label-primary">Snake Team</label>
+    <input class="form-control" type=" text" id="game4" placeholder="Snake Team" readonly=true></input>
+
+  </div>
+</body>
+<hr>
+<footer>
+  <h2>Pair Generator</h2>
+
+</footer>
+<script>
+var gang =[' Edu ',' Fabio',' Tiago ', ' Leo ', ' Daniel',' Dangelo ', ' Roger ', ' Alcindo ' ];
+var pair1 =[];
+var pair2 =[];
+var pair3 =[];
+var pair4 =[];
+var newGang=[];
+
+
+var pairGenerate = function(){
+clearFields();
+newGang = gang.sort(function(a,b){return 0.6 - Math.random()});
+newGang.join(" | ");
+var pair1 =[newGang[0],newGang[1]];
+var pair2 =[newGang[2],newGang[3]];
+var pair3 =[newGang[4],newGang[5]];
+var pair4 =[newGang[6],newGang[7]];
+console.log(newGang);
+document.getElementById("game1").value= pair1[0]+' & '+pair1[1];
+document.getElementById("game2").value= pair2[0]+' & '+pair2[1];
+document.getElementById("game3").value= pair3[0]+' & '+pair3[1];
+document.getElementById("game4").value= pair4[0]+' & '+pair4[1];
+
+}
+
+var displayGang = function(){
+  document.getElementById("myGang").value = gang.join(" | ");
+};
+
+var clearFields = function(){
+  game1 =[];
+  game2 =[];
+  game3 =[];
+  game4 =[];
+};
+
+</script>
+</html>

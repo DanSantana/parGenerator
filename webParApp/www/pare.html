@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pare</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+</head>
+<body class="container" onload="cardGenerate()">
+  <h1 class="jumbotron">Random Combination Generator</h1>
+
+  <button class="btn-primary form-control" onclick="gameGenerate()">Generate Combination!!</button>
+  <hr>
+  <div>
+    <label class="label label-primary">Source Numbers</label>
+    <input class="form-control" type=" text" id="myCard" placeholder="press Go to generate" readonly=true></input>
+    <label class="label label-primary">Combination 1</label>
+    <input class="form-control" type=" text" id="game1" placeholder="Game 1" readonly=true></input>
+    <label class="label label-primary">Combination 2</label>
+    <input class="form-control" type=" text" id="game2" placeholder="Game 2" readonly=true></input>
+    <label class="label label-primary">Combination 3</label>
+    <input class="form-control" type=" text" id="game3" placeholder="Game 3" readonly=true></input>
+    <label class="label label-primary">Combination 4</label>
+    <input class="form-control" type=" text" id="game4" placeholder="Game 4" readonly=true></input>
+
+  </div>
+  <!--<table class="table">
+  <thead class="thead-light" style="width=90%">
+  <tr>
+  <th scope="col">#</th>
+  <th scope="col">First</th>
+  <th scope="col">Last</th>
+  <th scope="col">Handle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1</th>
+<td>Mark</td>
+<td>Otto</td>
+<td>@mdo</td>
+</tr>
+<tr>
+<th scope="row">2</th>
+<td>Jacob</td>
+<td>Thornton</td>
+<td>@fat</td>
+</tr>
+<tr>
+<th scope="row">3</th>
+<td>Larry</td>
+<td>the Bird</td>
+<td>@twitter</td>
+</tr>
+</tbody>
+</table>-->
+</body>
+<hr>
+<footer>
+  <h2>Super Mega Combination Generator</h2>
+
+</footer>
+<script>
+var card =[];
+var game1 =[];
+var game2 =[];
+var game3 =[];
+var game4 =[];
+
+var cardGenerate = function(){
+  for (var i = 1; i <= 49; i++) {
+    card.push(i);
+  }
+  document.getElementById("myCard").value = card;
+};
+
+var gameGenerate = function(){
+  clearFields();
+  console.clear();
+  for (var i = 1; i < 8; i++) {
+    //Math.floor(Math.random()*(max-min+1)+min)
+    var no1 = Math.ceil(Math.random()* 47) + 0;
+    var no2 = Math.ceil(Math.random()* 47) + 0;
+    var no3 = Math.ceil(Math.random()* 47) + 0;
+    var no4 = Math.ceil(Math.random()* 47) + 0;
+
+    console.log(no1);
+    console.log(no2);
+    console.log(no3);
+    console.log(no4);
+
+    game1.push(card[no1]);
+    game2.push(card[no2]);
+    game3.push(card[no3]);
+    game4.push(card[no4]);
+  }
+  document.getElementById("game1").value= game1;
+  document.getElementById("game2").value= game2;
+  document.getElementById("game3").value= game3;
+  document.getElementById("game4").value= game4;
+};
+var clearFields = function(){
+  game1 =[];
+  game2 =[];
+  game3 =[];
+  game4 =[];
+};
+
+</script>
+</html>
